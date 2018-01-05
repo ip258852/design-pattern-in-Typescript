@@ -1,2 +1,3 @@
 # design-pattern-in-Typescript
-ya
+練習設計者模式
+使用Typescript
