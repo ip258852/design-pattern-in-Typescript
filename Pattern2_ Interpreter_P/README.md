@@ -1,0 +1,3 @@
+採用策略1寫法
+功能撰寫放在app.ts
+邏輯撰寫放在interpeter.ts
