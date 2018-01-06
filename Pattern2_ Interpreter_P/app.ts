@@ -1,6 +1,7 @@
 /// <reference path="interpeter.ts" />
 /// <reference path="methos.ts" />
 
+//function setting......
 let method = {
     fix5Up(arr : number[]):void{ 
         let fix = arr.reduce((pre : number,data : number) => pre+data);

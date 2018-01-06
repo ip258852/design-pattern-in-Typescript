@@ -10,7 +10,7 @@ namespace interpeter{
             this.fix5Up=method.fix5Up;
             this.fix5Less=method.fix5Less;
         }
-
+        //logic fix
         fix(arr : number[]){
             if(arr.length>5) this.fix5Up(arr);
             else if (arr.length<=5) this.fix5Less(arr);
