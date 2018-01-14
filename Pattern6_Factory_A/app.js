@@ -31,46 +31,45 @@ var DB;
 var abstractFac;
 (function (abstractFac_1) {
     var abstractFac = /** @class */ (function () {
-        function abstractFac(_server) {
-            this.server = _server;
+        function abstractFac() {
         }
         return abstractFac;
     }());
     var HistoryDB = /** @class */ (function (_super) {
         __extends(HistoryDB, _super);
-        function HistoryDB(_server) {
-            return _super.call(this, _server) || this;
+        function HistoryDB() {
+            return _super !== null && _super.apply(this, arguments) || this;
         }
         HistoryDB.prototype.create = function () {
-            console.log("create " + this.server + ".");
+            return new DB.DBContext('History');
         };
         return HistoryDB;
     }(abstractFac));
     abstractFac_1.HistoryDB = HistoryDB;
-    var DatamartDB = /** @class */ (function (_super) {
-        __extends(DatamartDB, _super);
-        function DatamartDB(_server) {
-            return _super.call(this, _server) || this;
+    var ONLINEDB = /** @class */ (function (_super) {
+        __extends(ONLINEDB, _super);
+        function ONLINEDB() {
+            return _super !== null && _super.apply(this, arguments) || this;
         }
-        DatamartDB.prototype.create = function () {
-            console.log("create " + this.server + ".");
+        ONLINEDB.prototype.create = function () {
+            return new DB.DBContext('History');
         };
-        return DatamartDB;
+        return ONLINEDB;
     }(abstractFac));
-    abstractFac_1.DatamartDB = DatamartDB;
-    var OnlineDB = /** @class */ (function (_super) {
-        __extends(OnlineDB, _super);
-        function OnlineDB(_server) {
-            return _super.call(this, _server) || this;
+    abstractFac_1.ONLINEDB = ONLINEDB;
+    var DATAMARTDB = /** @class */ (function (_super) {
+        __extends(DATAMARTDB, _super);
+        function DATAMARTDB() {
+            return _super !== null && _super.apply(this, arguments) || this;
         }
-        OnlineDB.prototype.create = function () {
-            console.log("create " + this.server + ".");
+        DATAMARTDB.prototype.create = function () {
+            return new DB.DBContext('History');
         };
-        return OnlineDB;
+        return DATAMARTDB;
     }(abstractFac));
-    abstractFac_1.OnlineDB = OnlineDB;
+    abstractFac_1.DATAMARTDB = DATAMARTDB;
 })(abstractFac || (abstractFac = {}));
 /// <reference path='DB.ts'/>
 /// <reference path='abstractFac.ts'/>
-var fac = new abstractFac.HistoryDB(DB.STATE.ONLINE);
-fac.create();
+var his = new abstractFac.DATAMARTDB();
+his.create().connect();

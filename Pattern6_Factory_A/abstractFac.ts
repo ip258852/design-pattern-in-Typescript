@@ -1,35 +1,23 @@
 /// <reference path='DB.ts'/>
 namespace abstractFac{
     abstract class abstractFac {
-        server : DB.STATE ;
-        constructor(_server : DB.STATE) {
-            this.server=_server;
-        }
-        abstract create() : void;
+        
+        abstract create() : DB.DBContext;
     }
 
     export class HistoryDB extends abstractFac {
-        constructor(_server : DB.STATE) {
-            super(_server);
-        }
         create(){
-            console.log(`create ${this.server}.`);
+            return new DB.DBContext('History');
         }
-    }
-    export class DatamartDB extends abstractFac {
-        constructor(_server : DB.STATE) {
-            super(_server);
-        }
+    } 
+    export class ONLINEDB extends abstractFac {
         create(){
-            console.log(`create ${this.server}.`);
+            return new DB.DBContext('History');
         }
-    }
-    export class OnlineDB extends abstractFac {
-        constructor(_server : DB.STATE) {
-            super(_server);
-        }
+    } 
+    export class DATAMARTDB extends abstractFac {
         create(){
-            console.log(`create ${this.server}.`);
+            return new DB.DBContext('History');
         }
-    }
+    } 
 }
