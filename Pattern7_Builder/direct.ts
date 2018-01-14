@@ -7,7 +7,7 @@ namespace direct{
         constructor(_builder : builder.IBuilder){
             this.builder=_builder;
         }
-        virtual construct() : data.IData {
+        construct() : data.IData {
             let work = this.builder.init();
             this.builder.buildReport(work);
             this.builder.buildRecord(work);
