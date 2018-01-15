@@ -28,6 +28,7 @@ namespace proxy{
             let totalPrice : number = 0 ;        
             let servicePrice : number = 0 ;
             let exceedMaxDelayJours : number =0 ;
+            
             if(transport.DelayHours<=this.MAX_DELAY_HOURS){
                 totalPrice = this.DelayPlacePrice.price(transport);
             }else{
