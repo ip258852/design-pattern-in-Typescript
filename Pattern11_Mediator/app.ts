@@ -7,3 +7,4 @@ let score = option.mediator.score();
 
 console.log(score);
 console.log(option.prod);
+ 
