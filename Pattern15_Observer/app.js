@@ -4,7 +4,7 @@ var observer;
         function ObserverPbx() {
         }
         ObserverPbx.prototype.update = function (absence, designee) {
-            console.log("[PBX] \u5DF2\u8F49\u6307\u5B9A\u8F49\u63A5 " + absence + "\u7684\u4F86\u96FB\u7D66 " + designee);
+            console.log("[PBX] already tranfer the phone  " + absence + " to " + designee);
         };
         return ObserverPbx;
     }());
@@ -13,7 +13,7 @@ var observer;
         function ObserverMailServer() {
         }
         ObserverMailServer.prototype.update = function (absence, designee) {
-            console.log("[MailServer] \u5DF2\u8F49\u6307\u5B9A\u8F49\u63A5 " + absence + "\u7684\u4F86\u96FB\u7D66 " + designee);
+            console.log("[MailServer] already tranfer the phone " + absence + " to " + designee);
         };
         return ObserverMailServer;
     }());
@@ -27,7 +27,7 @@ var subject;
             this.observers = new Array();
         }
         Subjectflow.prototype.attach = function (ob) {
-            if (this.observers.indexOf(ob) !== -1) {
+            if (this.observers.indexOf(ob) === -1) {
                 this.observers.push(ob);
             }
         };
@@ -52,4 +52,6 @@ var ms = new observer.ObserverMailServer();
 var suck = new subject.Subjectflow();
 suck.attach(pbx);
 suck.attach(ms);
+suck.notify('Hiiiii', 'Helllllo');
+suck.detach(pbx);
 suck.notify('Hiiiii', 'Helllllo');

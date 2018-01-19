@@ -9,3 +9,6 @@ suck.attach(pbx);
 suck.attach(ms);
 
 suck.notify('Hiiiii','Helllllo');
+
+suck.detach(pbx);
+suck.notify('Hiiiii','Helllllo');

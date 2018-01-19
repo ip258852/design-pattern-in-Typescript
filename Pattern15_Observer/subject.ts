@@ -12,7 +12,7 @@ namespace subject{
             this.observers=new Array<observer.IObserver>();
         }
         attach(ob : observer.IObserver) : void{
-            if(this.observers.indexOf(ob)!==-1){
+            if(this.observers.indexOf(ob)===-1){
                 this.observers.push(ob);
             }
         };
@@ -22,6 +22,7 @@ namespace subject{
                 this.observers.splice(index,1);
             }
         }
+        
         notify(absence : string , designee : string) : void{
             this.observers.forEach(
                 (val) => { val.update(absence,designee);}
